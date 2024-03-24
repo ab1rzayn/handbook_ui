@@ -20,10 +20,6 @@ int parseToInt(TextEditingController controller) {
   return int.parse(text);
 }
 
-int sellPrice = parseToInt(productSalePrice);
-int deliveryFee = parseToInt(productDeliveryFee);
-int sellQuantity = parseToInt(productSaleQuantity);
-
 class _sellProductState extends State<sellProduct> {
   int _totalCost = 0;
 
@@ -100,7 +96,7 @@ class _sellProductState extends State<sellProduct> {
               color: Colors.amberAccent,
             ),
 
-            //Finding the Final cost of the whole sell
+            //*Finding the Final cost of the whole sell
             const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -128,7 +124,15 @@ class _sellProductState extends State<sellProduct> {
               children: [
                 CustomButton(
                   text: 'পরবর্তী',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/customerInfo', arguments: {
+                      'productSellName': productSaleName.text,
+                      'productQuantity': productSaleQuantity.text,
+                      'productSellPrice': productSalePrice.text,
+                      'productDeliveryCharge': productDeliveryFee.text,
+                      'totalCost': _totalCost
+                    });
+                  },
                   width: 204,
                   height: 80,
                   borderRadius: 0,

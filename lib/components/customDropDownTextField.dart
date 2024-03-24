@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 class DropdownTextField extends StatefulWidget {
   final List<String> dropdownItems;
   final String labelText;
+  final Function(String)? itemHaveSelected;
 
   const DropdownTextField(
-      {Key? key, required this.dropdownItems, required this.labelText})
+      {
+        Key? key,
+        required this.dropdownItems,
+        required this.labelText,
+        required this.itemHaveSelected
+      })
       : super(key: key);
 
   @override
@@ -61,6 +67,9 @@ class _DropdownTextFieldState extends State<DropdownTextField> {
                       _selectedItem = widget.dropdownItems[index];
                       _textEditingController.text = _selectedItem!;
                     });
+                    if(widget.itemHaveSelected != null){
+                      widget.itemHaveSelected!(_selectedItem!);
+                    }
                     Navigator.pop(context);
                   },
                 );

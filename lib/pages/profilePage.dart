@@ -37,9 +37,7 @@ class _profilePageState extends State<profilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       //The AppBar of profile will be empty
-      appBar: AppBar(
-        title: const Text('')
-      ),
+      appBar: AppBar(title: const Text('')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
 
@@ -58,8 +56,9 @@ class _profilePageState extends State<profilePage> {
                   fontSize: 20,
                 ),
               ),
-              const SizedBox(height: 20,),
-
+              const SizedBox(
+                height: 20,
+              ),
 
               //The TextFields of profile name
               SizedBox(
@@ -129,9 +128,8 @@ class _profilePageState extends State<profilePage> {
                       print('Referral Code: ${_referralCodeController.text}');
                       print('Gmail Account: ${_gmailController.text}');
 
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const HomePage())
-                      );
+                      Navigator.pushNamed(context, '/homePage',
+                          arguments: _nameController.text);
                     }
                   },
                   style: ElevatedButton.styleFrom(

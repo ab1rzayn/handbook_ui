@@ -14,6 +14,9 @@ class ImageButtonWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+    final txtColor = isDarkTheme ? Colors.white : Colors.black;
+
     return  Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -30,10 +33,10 @@ class ImageButtonWithText extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(text,
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'TiroBangla',
             fontSize: 14,
-            color: Colors.black,
+            color: txtColor,
           ),
           )
         ],

@@ -25,13 +25,12 @@ class _NavigationPageState extends State<NavigationPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             //Images on the verification Screen
             Flexible(
               child: Image.asset(
                 Theme.of(context).brightness == Brightness.dark
-                ? 'assets/images/logos/logo_white.png'
-                : 'assets/images/logos/logo_black.png',
+                    ? 'assets/images/logos/logo_white.png'
+                    : 'assets/images/logos/logo_black.png',
                 width: 200,
                 height: 200,
               ),
@@ -78,15 +77,11 @@ class _NavigationPageState extends State<NavigationPage> {
             CustomButton(
               text: "এগিয়ে যান",
               onPressed: () {
-               Navigator.push(context,
-                   MaterialPageRoute(builder: (context) => const profilePage())
-               );
+                Navigator.pushNamed(context, '/profilePage');
               },
               width: 300,
               height: 58,
             ),
-
-
           ],
         ),
       ),
